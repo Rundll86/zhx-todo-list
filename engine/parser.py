@@ -21,8 +21,8 @@ def toExecutable(parts: list[str]):
 
 
 def isPartValid(syntaxPart: str):
-    if syntaxPart.startswith("...") and len(syntaxPart) > 3:
-        return isPartValid(syntaxPart[3:])
+    if syntaxPart.startswith("..."):
+        return isPartValid(getRestType(syntaxPart[3:]))
     if syntaxPart == "str" or syntaxPart == "number":
         return True
     return False
